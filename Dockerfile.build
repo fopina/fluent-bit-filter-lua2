@@ -12,13 +12,6 @@ RUN make
 
 RUN ls -la
 
-# stage only used for testing
-FROM fluent/fluent-bit:1.9.2 as tester
-
-COPY --from=builder /myplugin/build/flb-filter_lua2.so /
-
-RUN ["/fluent-bit/bin/fluent-bit", "-v", "-f1", "-e/flb-filter_lua2.so", "-idummy", "-ostdout", "-m", "*", "-oexit", "-m", "*"]
-
 FROM scratch
 
 COPY --from=builder /myplugin/build/flb-filter_lua2.so /
