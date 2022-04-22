@@ -532,8 +532,8 @@ static struct flb_config_map config_map[] = {
     {0}
 };
 
-struct flb_filter_plugin filter_lua_plugin = {
-    .name         = "lua",
+struct flb_filter_plugin filter_lua2_plugin = {
+    .name         = "lua2",
     .description  = "Lua Scripting Filter",
     .cb_init      = cb_lua_init,
 #ifdef FLB_FILTER_LUA_USE_MPACK
